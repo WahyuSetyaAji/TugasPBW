@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Catatan Belajar HTML - Pertemuan 4</title>
+</head>
+<body>
+    <h1>Catatan Belajar HTML - Pertemuan 4</h1>
+
+    <h2>1. Pengenalan Form dalam HTML</h2>
+    <p>Form adalah elemen penting dalam HTML untuk mengumpulkan data dari pengguna. Form memiliki atribut <code>action</code> dan <code>method</code> (GET atau POST).</p>
+
+    <h2>2. Input Text & Textarea</h2>
+    <h3>Input Text</h3>
+    <input type="text" name="username" placeholder="Masukkan nama Anda" maxlength="20" required>
+    <p>Input teks berguna untuk data pendek seperti nama dan email.</p>
+
+    <h3>Textarea</h3>
+    <textarea name="komentar" rows="4" cols="50" placeholder="Masukkan komentar Anda"></textarea>
+    <p>Textarea digunakan untuk masukan teks yang lebih panjang, seperti komentar atau deskripsi.</p>
+
+    <h2>3. Dropdown (Combobox)</h2>
+    <select name="pilihan">
+        <option value="1">Pilihan 1</option>
+        <option value="2">Pilihan 2</option>
+    </select>
+    <p>Dropdown digunakan untuk memilih satu dari beberapa pilihan.</p>
+
+    <h2>4. Radio Button & Checkbox</h2>
+    <h3>Radio Button</h3>
+    <label><input type="radio" name="gender" value="male"> Laki-laki</label>
+    <label><input type="radio" name="gender" value="female"> Perempuan</label>
+    <p>Radio button memungkinkan pengguna memilih satu pilihan dari beberapa opsi.</p>
+
+    <h3>Checkbox</h3>
+    <label><input type="checkbox" name="hobi" value="musik"> Musik</label>
+    <label><input type="checkbox" name="hobi" value="olahraga"> Olahraga</label>
+    <label><input type="checkbox" name="hobi" value="membaca"> Membaca</label>
+    <p>Checkbox memungkinkan pengguna memilih lebih dari satu opsi.</p>
+
+    <h2>5. Button & File Upload</h2>
+    <h3>Button</h3>
+    <button type="submit">Kirim</button>
+    <button type="button" onclick="alert('Halo!')">Klik Saya</button>
+    <p>Tombol digunakan untuk mengirim form atau menjalankan aksi tertentu.</p>
+
+    <h3>File Upload</h3>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="file">Pilih File:</label>
+        <input type="file" id="file" name="file">
+        <button type="submit">Unggah</button>
+    </form>
+    <p><code>&lt;input type="file"&gt;</code> digunakan untuk mengunggah file dari komputer pengguna.</p>
+
+    <h2>6. Validasi Form Dasar</h2>
+    <form>
+        <input type="text" name="username" required minlength="5" maxlength="20" placeholder="Username"><br>
+        <input type="email" name="email" required placeholder="Email"><br>
+        <input type="number" name="age" min="18" max="60" placeholder="Umur"><br>
+        <button type="submit">Kirim</button>
+    </form>
+    <p>Validasi form dapat dilakukan dengan atribut seperti <code>required</code>, <code>min</code>, <code>max</code>, <code>pattern</code>, dan sebagainya.</p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catatan Belajar JavaScript - Pertemuan 6</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Catatan Belajar JavaScript - Pertemuan 6</h1>
+
+  <h2>1. Apa itu JavaScript?</h2>
+  <p>JavaScript adalah bahasa pemrograman yang digunakan untuk membuat halaman web lebih dinamis dan interaktif.</p>
+
+  <h2>2. Cara Menjalankan JavaScript</h2>
+  <h3>2.1 Inline JavaScript</h3>
+  <button onclick="alert('Halo! Ini dari JavaScript')">Klik Saya</button>
+
+  <h3>2.2 External JavaScript (terhubung ke script.js)</h3>
+  <button onclick="salam()">Tampilkan Salam</button>
+
+  <h2>3. Variabel: let dan const</h2>
+  <button onclick="ujiVariabel()">Lihat Contoh</button>
+
+  <h2>4. Tipe Data</h2>
+  <button onclick="tampilkanTipeData()">Cek Konsol</button>
+
+  <h2>5. Studi Kasus: Kalkulator Penjumlahan</h2>
+  <input type="number" id="num1" placeholder="Angka pertama" />
+  <input type="number" id="num2" placeholder="Angka kedua" />
+  <button onclick="jumlahkan()">Hitung</button>
+  <p>Hasil: <span id="hasil"></span></p>
+</body>
+</html>
