@@ -1,4 +1,12 @@
-<?php 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 6</title>
+</head>
+<body>
+    <?php 
     define("pajak", 0.1);
 
     $barang = [
@@ -45,5 +53,7 @@
         <p>Pajak (10%): <?= ($pajak); ?></p>
         <p><strong>Total Bayar: <?= ($total); ?></strong></p>
     </div>
+</body>
+</html>
 </body>
 </html>

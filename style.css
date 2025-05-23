@@ -67,6 +67,7 @@ body {
     border-radius: 10px;
     padding: 1.5em;
     width: 220px;
+    min-height: 140px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     text-align: center;
   }
