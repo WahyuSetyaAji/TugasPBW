@@ -1,3 +1,12 @@
+<!-- Session -->
+<?php
+    session_start();
+    if (!isset($_SESSION['login_Un51k4'])) {
+        header("Location: login.php?message=" . urlencode("Untuk mengakses fitur anda harus login."));
+    exit;
+    }
+?>
+
 <?php include 'proses_index.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +21,7 @@
 
    <div class="container mt-4">
        <h2>Daftar Buku</h2>
-
+    
        <!-- Form Pencarian -->
        <form method="get" class="row g-3 mb-4">
            <div class="col-md-5">
