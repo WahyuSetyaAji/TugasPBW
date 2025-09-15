@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,34 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route dasar -> halaman utama
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+});
 
-// Named route -> halaman About
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Named route -> halaman Contact
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-// Route dengan parameter (contoh profil user)
-Route::get('/user/{id}', function ($id) {
-    return "Ini halaman profil User dengan ID: " . $id;
-})->name('user.profile');
+require __DIR__.'/auth.php';
 
-// Route dengan parameter opsional
-Route::get('/greeting/{name?}', function ($name = "Guest") {
-    return "Halo, " . $name;
-})->name('greeting');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return "Selamat datang, Admin!";
+    });
+});
 
-// Grouping route (prefix admin)
-Route::prefix('admin')->group(function () {
-    Route::get('/edit', function () {
-        return view('manage.edit');
-    })->name('admin.edit');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/dashboard', function () {
+        return "Selamat datang, User!";
+    });
 });
