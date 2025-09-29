@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/uts', function () {
+    return view('uts'); // akan memanggil file resources/views/uts.blade.php
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -43,5 +47,13 @@ Route::get('/rahasia', function () {
 Route::middleware(['auth', 'role:admin,owner'])->group(function () {
     Route::get('/product/{angka}', [ProductController::class, 'index']);
 });
+
+Route::get('/uts', function () {
+    return view('uts'); // akan memanggil file resources/views/uts.blade.php
+});
+
+Route::get('/route_count/{id}',[\App\Http\Controllers\BarangController::class,'index']);
+
+Route::get('product',[\App\Http\Controllers\BarangController::class,'index']);
 
 require __DIR__.'/auth.php';
