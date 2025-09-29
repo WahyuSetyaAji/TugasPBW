@@ -2,19 +2,22 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UtsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/uts', function () {
-    return view('uts'); // akan memanggil file resources/views/uts.blade.php
-});
+// UTS
+Route::get('/uts', [UtsController::class, 'index']);
+Route::get('/uts/web', [UtsController::class, 'web']);
+Route::get('/uts/database', [UtsController::class, 'database']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // profile bawaan laravel
 Route::middleware('auth')->group(function () {
@@ -29,7 +32,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         return view('admin.dashboard');
     });
 });
-
 
 // user biasa
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -48,12 +50,11 @@ Route::middleware(['auth', 'role:admin,owner'])->group(function () {
     Route::get('/product/{angka}', [ProductController::class, 'index']);
 });
 
-Route::get('/uts', function () {
-    return view('uts'); // akan memanggil file resources/views/uts.blade.php
+Route::get('/route_count/{id}', [\App\Http\Controllers\BarangController::class,'index']);
+Route::get('product', [\App\Http\Controllers\BarangController::class,'index']);
+
+Route::get('/coba', function() {
+    return "Route berhasil!";
 });
 
-Route::get('/route_count/{id}',[\App\Http\Controllers\BarangController::class,'index']);
-
-Route::get('product',[\App\Http\Controllers\BarangController::class,'index']);
-
-require __DIR__.'/auth.php';
+require __DIR__.'/auth.php'; // HARUS PALING BAWAH

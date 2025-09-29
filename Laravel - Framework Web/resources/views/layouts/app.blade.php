@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Praktikum Blade')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTS</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Blade Praktikum</a>
-    </nav>
+<header>
+<h1>Praktikum Laravel</h1>
+<nav>
+<a href="{{ url('/uts') }}">Menu UTS</a> |
+<a href="{{ url('/uts/web') }}">Pemrograman Web</a> |
+<a href="{{ url('/uts/database') }}">Database</a>
+</nav>
+<hr>
+</header>
 
-    <div class="container mt-4">
-        @yield('content')
-    </div>
+<main>
+@yield('content')
+</main>
+
+<footer>
+<hr>
+<p>&copy; {{ date('Y') }} Praktikum Laravel</p>
+</footer>
 </body>
 </html>
